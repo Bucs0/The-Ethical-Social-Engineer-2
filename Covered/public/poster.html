@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free WiFi Notice — Print</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { margin: 0; background: #e5e7eb; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: 'Noto Sans', sans-serif; }
+    .poster {
+      width: 400px;
+      background: #fff;
+      border: 6px solid #1e40af;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+    .header {
+      background: #1e40af;
+      padding: 18px 20px 14px;
+      text-align: center;
+      position: relative;
+    }
+    .header .seal { font-size: 36px; }
+    .header h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      color: #bfdbfe;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 6px 0 2px;
+    }
+    .header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .red-band {
+      background: #dc2626;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .body { padding: 20px 24px; }
+    .wifi-icon { text-align: center; font-size: 56px; margin-bottom: 6px; }
+    .big-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #1e40af;
+      text-align: center;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .sub-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      color: #dc2626;
+      text-align: center;
+      letter-spacing: 2px;
+      margin-top: 2px;
+      margin-bottom: 18px;
+    }
+    .info-box {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-label { font-size: 12px; color: #6b7280; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .info-val { font-size: 14px; font-weight: 700; color: #1e3a8a; font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
+    .notice {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #92400e;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      border-radius: 0 4px 4px 0;
+    }
+    .steps { margin-bottom: 14px; }
+    .steps h4 { font-size: 11px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .step { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #374151; }
+    .step-num {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #1e40af; color: white;
+      font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .footer-band {
+      background: #1e40af;
+      color: #bfdbfe;
+      text-align: center;
+      font-size: 11px;
+      padding: 8px 12px;
+      line-height: 1.6;
+    }
+    .footer-band strong { color: white; }
+    @media print {
+      body { background: white; }
+      .poster { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="header">
+      <div class="seal">🏛️</div>
+      <h1>Republic of the Philippines</h1>
+      <h2>BARANGAY NOTICE</h2>
+    </div>
+
+    <div class="red-band">📶 FREE WiFi ZONE</div>
+
+    <div class="body">
+      <div class="wifi-icon">🌐</div>
+      <div class="big-label">FREE INTERNET</div>
+      <div class="sub-label">FOR ALL RESIDENTS</div>
+
+      <div class="info-box">
+        <div class="info-row">
+          <span class="info-label">Network Name (SSID)</span>
+          <span class="info-val">Brgy_FreeWiFi</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Password</span>
+          <span class="info-val">None (Open)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Speed</span>
+          <span class="info-val">Up to 10 Mbps</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Session Limit</span>
+          <span class="info-val">1 Hour / Visit</span>
+        </div>
+      </div>
+
+      <div class="notice">
+        ⚠️ <strong>IMPORTANT:</strong> Upon connecting, you will be redirected to a sign-in page. Please register with your name and email address to activate your free session. No payment required.
+      </div>
+
+      <div class="steps">
+        <h4>How to Connect</h4>
+        <div class="step"><div class="step-num">1</div><span>Connect to <strong>Brgy_FreeWiFi</strong> on your device</span></div>
+        <div class="step"><div class="step-num">2</div><span>A sign-in page will open automatically</span></div>
+        <div class="step"><div class="step-num">3</div><span>Enter your name and email to register</span></div>
+        <div class="step"><div class="step-num">4</div><span>Enjoy your free 1-hour internet session!</span></div>
+      </div>
+    </div>
+
+    <div class="footer-band">
+      <strong>Provided by: Barangay Info-Tech Committee</strong><br/>
+      In partnership with Globe Telecom · For concerns, see the Barangay Hall
+    </div>
+  </div>
+</body>
+</html>

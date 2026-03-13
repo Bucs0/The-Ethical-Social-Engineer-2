@@ -75,10 +75,9 @@ export default function Portal() {
 
         <header className="bg-[#1a4d2e]/90 backdrop-blur-sm px-5 py-3 flex items-center justify-between shadow-md">
           <div className="flex items-center gap-2.5">
-            <img src="/cvsu logo.png" alt="CvSU Logo" className="w-9 h-9 object-contain flex-shrink-0" />
             <div>
-              <p className="text-white font-black text-base leading-none tracking-tight">CvSU Bacoor</p>
-              <p className="text-white/50 text-[10px] leading-none mt-0.5">Campus Free WiFi Program</p>
+              <p className="text-white font-black text-base leading-none tracking-tight">Campus Free WiFi Program</p>
+              <p className="text-white/50 text-[10px] leading-none mt-0.5">Students Network</p>
             </div>
           </div>
           <div className="text-right">
@@ -92,8 +91,10 @@ export default function Portal() {
             <div className="h-1.5 bg-gradient-to-r from-[#1a4d2e] via-[#2d7a4f] to-[#f5c518]" />
             <div className="px-6 sm:px-10 py-8">
               <div className="flex justify-center mb-5">
-                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center overflow-hidden">
-                  <img src="/cvsu logo.png" alt="CvSU" className="w-12 h-12 object-contain" />
+                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
+                  <svg className="w-9 h-9 text-[#1a4d2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                  </svg>
                 </div>
               </div>
               <h1 className="text-center text-[#1a4d2e] font-extrabold text-2xl sm:text-3xl mb-1">Connect to Free WiFi</h1>

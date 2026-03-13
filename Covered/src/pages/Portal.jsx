@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
+import TermsModal from './TermsModal'
 
 const WIFI_PASSWORD = 'cvsu2026'
 
 export default function Portal() {
   const [form, setForm] = useState({ firstname: '', lastname: '', mi: '', email: '' })
   const [status, setStatus] = useState('idle')
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
 
   function handleChange(e) {
     const { name, value } = e.target
@@ -137,7 +140,7 @@ export default function Portal() {
                 </div>
 
                 <button
-                  type="submit" disabled={status !== 'idle'}
+                  type="submit" disabled={status !== 'idle' || !termsAccepted}
                   className="w-full bg-[#1a4d2e] hover:bg-[#143d25] text-white font-bold rounded-xl py-3.5 text-base tracking-wide transition active:scale-95 disabled:opacity-70 flex items-center justify-center gap-2 mt-2"
                 >
                   {status === 'loading' && (
@@ -150,11 +153,30 @@ export default function Portal() {
                 </button>
               </form>
 
-              <p className="text-center text-[11px] text-gray-400 mt-4 leading-relaxed px-2">
-                By connecting, you agree to the <span className="text-[#1a4d2e]">Terms of Use</span> and{' '}
-                <span className="text-[#1a4d2e]">Acceptable Use Policy</span>.
-                Your information is used solely for network access verification.
-              </p>
+              <div className="mt-4 space-y-2">
+                <label className="flex items-start gap-2.5 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    checked={termsAccepted}
+                    onChange={() => !termsAccepted ? setShowTerms(true) : setTermsAccepted(false)}
+                    className="mt-0.5 w-4 h-4 accent-[#1a4d2e] flex-shrink-0 cursor-pointer"
+                  />
+                  <span className="text-[11px] text-gray-500 leading-relaxed">
+                    I agree to the{' '}
+                    <button type="button" onClick={() => setShowTerms(true)} className="text-[#1a4d2e] underline underline-offset-2 font-semibold hover:text-[#143d25]">Terms of Use</button>
+                    {' '}and{' '}
+                    <button type="button" onClick={() => setShowTerms(true)} className="text-[#1a4d2e] underline underline-offset-2 font-semibold hover:text-[#143d25]">Acceptable Use Policy</button>.
+                    Your information is used solely for network access verification.
+                  </span>
+                </label>
+              </div>
+
+              {showTerms && (
+                <TermsModal
+                  onAccept={() => { setTermsAccepted(true); setShowTerms(false) }}
+                  onClose={() => setShowTerms(false)}
+                />
+              )}
             </div>
           </div>
         </main>

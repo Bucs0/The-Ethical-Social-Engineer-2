@@ -44,18 +44,18 @@ export default function TermsModal({ onAccept, onClose }) {
           className="overflow-y-auto px-6 py-5 text-sm text-gray-700 leading-relaxed space-y-4 flex-1"
         >
           <div>
-            <p className="font-bold text-[#1a4d2e] text-base mb-1">CvSU Bacoor Campus Free WiFi Program</p>
+            <p className="font-bold text-[#1a4d2e] text-base mb-1">Campus Free WiFi Program</p>
             <p className="text-gray-500 text-xs">Effective Date: Academic Year 2025–2026 | Campus Network Services</p>
           </div>
 
           <div>
             <p className="font-semibold text-gray-800 mb-1">1. Purpose of the Service</p>
-            <p>The CvSU Bacoor Campus Free WiFi Program ("Service") is provided exclusively to currently enrolled students of Cavite State University – Bacoor Campus. The Service is intended to support academic activities, research, and educational communications only.</p>
+            <p>The Campus Free WiFi Program ("Service") is provided exclusively to currently enrolled students of Bacoor Campus. The Service is intended to support academic activities, research, and educational communications only.</p>
           </div>
 
           <div>
             <p className="font-semibold text-gray-800 mb-1">2. Registration and Eligibility</p>
-            <p>By registering, you confirm that you are a currently enrolled student of CvSU Bacoor Campus. You agree to provide accurate personal information including your full name and a valid email address. Misrepresentation of identity is grounds for immediate termination of access.</p>
+            <p>By registering, you confirm that you are a currently enrolled student of Bacoor Campus. You agree to provide accurate personal information including your full name and a valid email address. Misrepresentation of identity is grounds for immediate termination of access.</p>
           </div>
 
           <div>
@@ -77,7 +77,7 @@ export default function TermsModal({ onAccept, onClose }) {
 
           <div>
             <p className="font-semibold text-gray-800 mb-1">5. Network Monitoring</p>
-            <p>All activity on this network is subject to monitoring by Campus Network Services. Users should have no expectation of privacy while connected to CvSU_StudentsNet. Logs may be reviewed to ensure compliance with these terms.</p>
+            <p>All activity on this network is subject to monitoring by Campus Network Services. Users should have no expectation of privacy while connected to Campus_StudentsNet. Logs may be reviewed to ensure compliance with these terms.</p>
           </div>
 
           <div>
@@ -87,7 +87,7 @@ export default function TermsModal({ onAccept, onClose }) {
 
           <div>
             <p className="font-semibold text-gray-800 mb-1">7. Disclaimer of Liability</p>
-            <p>CvSU Bacoor Campus provides this service on an "as is" basis. The university is not liable for any loss, damage, or interruption of service arising from your use of the network. You use the service at your own risk.</p>
+            <p>Bacoor Campus provides this service on an "as is" basis. The campus is not liable for any loss, damage, or interruption of service arising from your use of the network. You use the service at your own risk.</p>
           </div>
 
           <div>
@@ -101,7 +101,7 @@ export default function TermsModal({ onAccept, onClose }) {
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-xs text-gray-500">
-            For concerns or inquiries, contact Campus Network Services at <span className="text-[#1a4d2e] font-medium">itsupport@cvsu-bacoor.edu.ph</span> or visit the ICT Office at the Main Building, Ground Floor.
+            For concerns or inquiries, contact Campus Network Services at <span className="text-[#1a4d2e] font-medium">itsupport@campus-network.edu.ph</span> or visit the ICT Office at the Main Building, Ground Floor.
           </div>
         </div>
 

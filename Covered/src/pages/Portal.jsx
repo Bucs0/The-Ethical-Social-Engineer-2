@@ -41,7 +41,7 @@ export default function Portal() {
         </div>
         <h2 className="text-white text-2xl font-extrabold mb-2">Registration Complete!</h2>
         <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-8">
-          Your account has been verified. Connect to <span className="text-white font-semibold">CvSU_StudentsNet</span> using the password below.
+          Your account has been verified. Connect to <span className="text-white font-semibold">Campus_StudentsNet</span> using the password below.
         </p>
 
         <div className="bg-white/10 border border-white/20 rounded-2xl px-8 py-6 max-w-xs w-full mb-4">
@@ -52,7 +52,7 @@ export default function Portal() {
 
         <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 max-w-xs w-full">
           <p className="text-white/40 text-xs leading-relaxed">
-            Go to <span className="text-white/60">Settings → WiFi → CvSU_StudentsNet</span><br/>
+            Go to <span className="text-white/60">Settings → WiFi → Campus_StudentsNet</span><br/>
             and enter the password above to start your session.
           </p>
         </div>
@@ -99,7 +99,7 @@ export default function Portal() {
               </div>
               <h1 className="text-center text-[#1a4d2e] font-extrabold text-2xl sm:text-3xl mb-1">Connect to Free WiFi</h1>
               <p className="text-center text-gray-500 text-sm mb-7">
-                Network: <span className="text-[#1a4d2e] font-semibold">CvSU_StudentsNet</span>
+                Network: <span className="text-[#1a4d2e] font-semibold">Campus_StudentsNet</span>
               </p>
               <hr className="border-gray-100 mb-6" />
 
@@ -183,7 +183,7 @@ export default function Portal() {
         </main>
 
         <footer className="py-5 text-center text-xs text-white/40 px-4">
-          <span className="text-white/60 font-semibold">Cavite State University — Bacoor Campus</span> · Campus Network Services
+          <span className="text-white/60 font-semibold">Bacoor Campus</span> · Campus Network Services
         </footer>
 
       </div>
